@@ -23,8 +23,8 @@
                             ],
                             [
                                 'name' => 'Lista de Productos',
-                                'route' => '#',
-                                'active'=> request()->routeIs('lproductos')
+                                'route' => route('productos'),
+                                'active'=> request()->routeIs('productos')
                             ]
         
                          ]
