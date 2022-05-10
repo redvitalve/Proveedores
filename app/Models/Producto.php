@@ -13,6 +13,8 @@ class producto extends Model
         'nombre',
         'barras',
         'status',
-        'cantidad_empaque'
+        'cantidad_empaque',
+        'user_id',
+        'team_id'
     ];
 }

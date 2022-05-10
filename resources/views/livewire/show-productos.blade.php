@@ -4,11 +4,7 @@
             {{ __('Productos') }}
         </h2>
     </x-slot>
-    {{-- {{$search}} --}}
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
-        {{-- <div class="px-6 py-4">
-            <input type="text" wire:model="search">
-        </div> --}}
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <div class="p-4 ">
                 <label for="table-search" class="sr-only">Buscar</label>
@@ -74,7 +70,7 @@
                             Medicina
                         </td>
                         <td class="px-6 py-4">
-                            15$
+                            {{$producto->id}}
                         </td>
                         <td class="px-6 py-4 text-right">
                             <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
