@@ -12,6 +12,9 @@
       {{-- <form action="{{route('dashboard')}}" method="post" encrypted="multipart/form-data" class="w-full max-w-lg">
           @csrf --}}
           <div class="flex flex-wrap -mx-3 mb-6">
+            {{-- @if ($imagen)
+              <img class='mb-4' src="{{$imagen->temporaryUrl()}}">
+            @endif --}}
               <div class="w-1/2 md:w-1/2 px-3 mb-6 md:mb-0">
                 <input type="text" value="{{ Auth::user()->id }}" class="hidden" wire:model.defer="user_id">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -105,6 +108,9 @@
                 {{$psugerido}}
                 <x-jet-input-error for ="psugerido">
               </div>
+              <div></div>
+                <input type="file" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model.defer="imagen">
+              
             </div>
       {{-- </form> --}}
   </x-slot>
@@ -116,7 +122,7 @@
     <x-jet-button  wire:click="save">
       Crear nuevo producto
     </x-jet-button>
-    <span wire:loading>Cargando...</span>
+    {{-- <span wire:loading>Cargando...</span> --}}
   </x-slot>
 
 </x-jet-dialog-modal>

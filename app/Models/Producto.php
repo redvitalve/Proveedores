@@ -15,6 +15,7 @@ class producto extends Model
         'status',
         'cantidad_empaque',
         'user_id',
-        'team_id'
+        'team_id',
+        'imagen'
     ];
 }

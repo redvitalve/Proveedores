@@ -10,24 +10,24 @@ class CreateProduct extends Component
 {
     public $open= false;
 
-    public $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido;
+    public $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $imagen;
 
-    protected $rules = [
-        'sku_provee' => 'required|max:100',
-        'barras' => 'required|min:10',
-        'nombre' => 'required|min:5',
-        'cantidad_empaque' => 'required|min:1',
-        'condicion'=> 'required|min:1',
-            'moneda'=> 'required|min:1',
-            'cantidad'=> 'required|min:1',
-            'cbulto'=> 'required|min:1',
-            'cunidad'=> 'required|min:1',
-            'psugerido'=> 'required|min:1'
-    ];
+    // protected $rules = [
+    //     'sku_provee' => 'required|max:100',
+    //     'barras' => 'required|min:10',
+    //     'nombre' => 'required|min:5',
+    //     'cantidad_empaque' => 'required|min:1',
+    //     'condicion'=> 'required|min:1',
+    //         'moneda'=> 'required|min:1',
+    //         'cantidad'=> 'required|min:1',
+    //         'cbulto'=> 'required|min:1',
+    //         'cunidad'=> 'required|min:1',
+    //         'psugerido'=> 'required|min:1'
+    // ];
 
     public function save (){
 
-          $this->validate();
+        //   $this->validate();
 
         Producto::create([
         'sku_provee' => $this->sku_provee,

@@ -5,16 +5,19 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Producto;
 use App\Models\Movimiento;
+use Livewire\WithFileUploads;
 
 class ShowProductos extends Component
 {
+    use WithFileUploads;
+
     public $search;
     public $sort='id';
     public $direction='desc';
 
     public $open= false;
 
-    public $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id;
+    public $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id, $imagen;
     protected $listener = ['render'=>'render'];
 
     // protected $rules = [
@@ -38,13 +41,16 @@ class ShowProductos extends Component
 
       //  $this->validate();
 
+        $imagen = $this->imagen->store('productos');
+
         Producto::create([
         'sku_provee' => $this->sku_provee,
         'barras' => $this->barras,
         'nombre' => $this->nombre,
         'cantidad_empaque' => $this->cantidad_empaque,
         'status'=>"N",
-        'user_id' => $this->user_id
+        'user_id' => $this->user_id,
+        'imagen' => $imagen
         ]);
 
         Movimiento::create([
@@ -56,7 +62,7 @@ class ShowProductos extends Component
             'cunidad'=> $this->cunidad,
             'psugerido'=> $this->psugerido
         ]);
-        $this->reset(['open', 'sku_provee', 'barras', 'nombre', 'cantidad_empaque', 'cantidad', 'condicion', 'moneda', 'cbulto', 'cunidad', 'psugerido', 'user_id']);
+        $this->reset(['open', 'sku_provee', 'barras', 'nombre', 'cantidad_empaque', 'cantidad', 'condicion', 'moneda', 'cbulto', 'cunidad', 'psugerido', 'user_id', 'imagen']);
 
         $this->emitTo('show-products','render');
         $this->emit('alert', 'El Producto se creo satisfactoriamente');
