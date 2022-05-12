@@ -17,8 +17,8 @@ class CreateProduct extends Component
     // protected $listener = ['render'=>'render'];
 
     protected $rules = [
-        'sku_provee' => 'required',
-        'barras' => 'required',
+        'sku_provee' => 'required|max:4',
+        'barras' => 'required|max:4',
         'nombre' => 'required',
         'cantidad_empaque' => 'required',
         'condicion'=> 'required',

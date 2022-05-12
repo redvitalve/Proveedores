@@ -64,7 +64,8 @@
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                           {{$producto->nombre}}
+                            <img class="flex-shrink-0 object-cover w-8 h-8 mx-1 rounded-full" src="storage/app/productos/COUWw4U7mTQWckPeMg9rTOW4bP5BUVJ2wlcO1rof.jpg" alt="Productos" />
+                            <p class="mx-2 text-sm text-gray-600 dark:text-white"><span class="font-bold" href="#"> {{$producto->nombre}}
                         </th>
                         <td class="px-6 py-4">
                             {{$producto->sku_provee}}
