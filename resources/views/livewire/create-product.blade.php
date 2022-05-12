@@ -43,7 +43,7 @@
                 <x-jet-input-error for ="nombre">
               </div>
             </div>
-            <div class="flex flex-wrap -mx-3 mb-2">
+            <div class="flex flex-wrap -mx-3 mb-6">
               <div class="w-1/3 md:w-1/3 px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
                   Cantidad del Empaque
@@ -72,6 +72,8 @@
                 {{$condicion}}
                 <x-jet-input-error for ="condicion">
               </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
               <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
                   Moneda
@@ -100,6 +102,8 @@
                 <x-jet-input-error for ="cunidad">
                 <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Sin IVA" wire:model.defer="cunidad">
               </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
               <div class="w-1/5 md:w-1/4 px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
                   Precio Sugerido
@@ -108,10 +112,13 @@
                 {{$psugerido}}
                 <x-jet-input-error for ="psugerido">
               </div>
-              <div></div>
-                <input type="file" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model.defer="imagen">
+            <div>
+
+          </div>
+          <div class="flex flex-wrap">
+                <input type="file" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-6 px-6 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model.defer="imagen">
               
-            </div>
+          </div>
       {{-- </form> --}}
   </x-slot>
 
