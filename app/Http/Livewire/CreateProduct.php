@@ -9,61 +9,74 @@ use Livewire\WithFileUploads;
 
 class CreateProduct extends Component
 {
-    public $open= false;
+    public $open = false;
 
     use WithFileUploads;
 
-    public $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id, $imagen;
+    public $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id, $imagen, $identificador;
     // protected $listener = ['render'=>'render'];
 
+    public function mount()
+    {
+        $this->identificador = rand();
+    }
+
+    protected $messages = [
+        'required' => 'Error :Valor requerido.',
+        'size' => 'The :attribute must be exactly :size.',
+        'between' => 'The :attribute value :input is not between :min - :max.',
+        'in' => 'The :attribute must be one of the following types: :values',
+    ];
     protected $rules = [
-        'sku_provee' => 'required|max:4',
-        'barras' => 'required|max:4',
+        'sku_provee' => 'required|unique:productos',
+        'barras' => 'required',
         'nombre' => 'required',
         'cantidad_empaque' => 'required',
-        'condicion'=> 'required',
-            'moneda'=> 'required',
-            'cantidad'=> 'required',
-            'cbulto'=> 'required',
-            'cunidad'=> 'required',
-            'psugerido'=> 'required'
-        ];
+        'condicion' => 'required',
+        'moneda' => 'required',
+        'cantidad' => 'required',
+        'cbulto' => 'required',
+        'cunidad' => 'required',
+        'psugerido' => 'required',
+        'imagen' => 'image|max:2048'
+    ];
 
-        public function updated($propertyName){
-            $this->validateOnly($propertyName);
-        }
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
-    public function save (){
+    public function save()
+    {
 
         $this->validate();
         $imagen = $this->imagen->store('productos');
 
         Producto::create([
-        'sku_provee' => $this->sku_provee,
-        'barras' => $this->barras,
-        'nombre' => $this->nombre,
-        'cantidad_empaque' => $this->cantidad_empaque,
-        'status'=>"N",
-        'user_id' => $this->user_id,
-        'imagen' => $imagen
+            'sku_provee' => $this->sku_provee,
+            'barras' => $this->barras,
+            'nombre' => $this->nombre,
+            'cantidad_empaque' => $this->cantidad_empaque,
+            'status' => "N",
+            'user_id' => $this->user_id,
+            'imagen' => $imagen
         ]);
 
         Movimiento::create([
-            'sku_provee'=> $this->sku_provee,
-            'condicion'=> $this->condicion,
-            'moneda'=> $this->moneda,
-            'cantidad'=> $this->cantidad,
-            'cbulto'=> $this->cbulto,
-            'cunidad'=> $this->cunidad,
-            'psugerido'=> $this->psugerido
+            'sku_provee' => $this->sku_provee,
+            'condicion' => $this->condicion,
+            'moneda' => $this->moneda,
+            'cantidad' => $this->cantidad,
+            'cbulto' => $this->cbulto,
+            'cunidad' => $this->cunidad,
+            'psugerido' => $this->psugerido
         ]);
 
         $this->reset(['open', 'sku_provee', 'barras', 'nombre', 'cantidad_empaque', 'cantidad', 'condicion', 'moneda', 'cbulto', 'cunidad', 'psugerido', 'user_id', 'imagen']);
 
-        $this->emitTo('show-products','render');
+        $this->identificador = rand();
+        $this->emitTo('show-productos', 'render');
         $this->emit('alert', 'El Producto se creo satisfactoriamente');
-
-
     }
 
     public function render()
