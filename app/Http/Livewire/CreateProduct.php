@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Producto;
 use App\Models\Movimiento;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Storage;
+
 
 class CreateProduct extends Component
 {
@@ -14,7 +14,8 @@ class CreateProduct extends Component
 
     use WithFileUploads;
 
-    public $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id, $imagen, $identificador;
+
+    public $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id, $imagen, $identificador,$categoria;
     // protected $listener = ['render'=>'render'];
 
     public function mount()
@@ -60,7 +61,14 @@ class CreateProduct extends Component
             'cantidad_empaque' => $this->cantidad_empaque,
             'status' => "N",
             'user_id' => $this->user_id,
-            'imagen' => $imagen
+            'imagen' => $imagen,
+            'condicion' => $this->condicion,
+            'moneda' => $this->moneda,
+            'cantidad' => $this->cantidad,
+            'cbulto' => $this->cbulto,
+            'cunidad' => $this->cunidad,
+            'psugerido' => $this->psugerido,
+            'categoria' => $this->categoria,
         ]);
 
         Movimiento::create([

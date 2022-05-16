@@ -19,7 +19,7 @@
                 
                 
             @if($productos->count())
-
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -33,7 +33,7 @@
                                     <i class="fa fa-sort-alpha-down-alt float-right mt-1"></i>
                                 @endif
                             @else
-                            <i class="fa fa-sort float-right mt-1"></i>
+                                <i class="fa fa-sort float-right mt-1"></i>
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3 cursor-pointer" wire:click="order('sku_provee')">
@@ -45,14 +45,14 @@
                                     <i class="fa fa-sort-alpha-down-alt float-right mt-1"></i>
                                 @endif
                             @else
-                            <i class="fa fa-sort float-right mt-1"></i>
+                                <i class="fa fa-sort float-right mt-1"></i>
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3 cursor-pointer">
                             Categoria
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Precio unitario ($)
+                            Costo unitario
                         </th>
                         <th scope="col" class="px-6 py-3">
                             <span class="sr-only">Editar</span>
@@ -64,26 +64,27 @@
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                            <img class="flex-shrink-0 object-cover w-8 h-8 mx-1 rounded-full" src="storage/app/productos/COUWw4U7mTQWckPeMg9rTOW4bP5BUVJ2wlcO1rof.jpg" alt="Productos" />
+                            <img class="flex-shrink-0 object-cover w-8 h-8 mx-1 rounded-full" src="{{Storage::url($producto->imagen)}}" alt="Productos" />
                             <p class="mx-2 text-sm text-gray-600 dark:text-white"><span class="font-bold" href="#"> {{$producto->nombre}}
                         </th>
                         <td class="px-6 py-4">
                             {{$producto->sku_provee}}
                         </td>
                         <td class="px-6 py-4">
-                            Medicina
+                            {{$producto->categoria}}
                         </td>
                         <td class="px-6 py-4">
-                            {{$producto->id}}
+                            {{$producto->moneda}}{{$producto->cunidad}}
                         </td>
-                        <td class="px-6 py-4">
-                            @livewire('edit-product',['Producto' => $producto], key($producto->id))
+                        <td class="px-6 py-4" btn-green btn-green>
+                            @livewire('edit-product',['producto' => $producto], key($producto->id))
                         </td>
                     </tr>
                     @endforeach
                   
                 </tbody>
             </table>
+            </div>
            
         </div> 
         

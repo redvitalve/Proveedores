@@ -16,6 +16,13 @@ class producto extends Model
         'cantidad_empaque',
         'user_id',
         'team_id',
-        'imagen'
+        'imagen',
+        'condicion',
+        'moneda',
+        'cantidad',
+        'cbulto',
+        'cunidad',
+        'psugerido',
+        'categoria'
     ];
 }

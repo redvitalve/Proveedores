@@ -28,3 +28,7 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::get('/productos',ShowProductos::class)->name ('productos');
+
+Route::get('/productos/crear', function () {
+    return view('crearproducto');
+})->name('crear');

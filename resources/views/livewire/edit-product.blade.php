@@ -1,10 +1,10 @@
 <div>
-    <a class="bg-green-600  cursor-pointer" wire:click="$set('open',true)">
+    <a class="cursor-pointer" alt="Modificar" wire:click="$set('open',true)">
         <i class="fas fa-edit "></i>
     </a>
 
 
-    <x-jet-dialog-modal wire:model="open">
+    <x-jet-dialog-modal wire:model="open" class="m-auto">
 
         <x-slot name="title">
             
@@ -17,37 +17,57 @@
                 <div>
                   <span class="font-medium text-yellow-100">IMAGEN CARGANDO:</span> Espere un momento.
                 </div>
-              </div>
-                {{-- <form action="{{route('dashboard')}}" method="post" encrypted="multipart/form-data" class="w-full max-w-lg">
+            </div>
+
+              <div class="flex px-8 py-12">
+                <div class="relative overflow-x-auto shadow-md flex">
+                    <div class="w-2/3">
+
+
+
+
+
+
+                        {{-- <form action="{{route('dashboard')}}" method="post" encrypted="multipart/form-data" class="w-full max-w-lg">
                     @csrf --}}
-                    <div class="flex flex-wrap -mx-3 mb-6">
-                        @if ($imagen)
-                            <img class='mb-4' src="{{$imagen->temporaryUrl()}}">
-                        @else
-                            <img src="{{Storage::url($producto->imagen)}}" alt="producto"/>
-                        @endif
-            <div class="mb-4">
-                <x-jet-label value="Nombre del producto"/>
-                    <x-jet-input wire:model="producto.nombre" type="text" class="w-full"/>
-            </div>
-            <div class="mb-4">
-                <x-jet-label value="Codigo de Barra"/>
-                    <x-jet-input wire:model="producto.barras" type="text" class="w-full"/>
-            </div>
-            <div class="mb-4 flex px-5 m-4">
-                <div>
-                    <x-jet-label value="Moneda"/>
-                    <x-jet-input type="text" class="w-2/5 px-5 m-4"/>
+                        
+                            <div class="mb-4">
+                                <x-jet-label value="Nombre del producto"/>
+                                    <x-jet-input wire:model="producto.nombre" type="text" class="w-full"/>
+                            </div>
+                            <div class="mb-4">
+                                <x-jet-label value="Codigo de Barra"/>
+                                    <x-jet-input wire:model="producto.barras" type="text" class="w-full"/>
+                            </div>
+                            <div class="mb-4 flex px-5 m-4">
+                                <div>
+                                    <x-jet-label value="Moneda"/>
+                                    <x-jet-input type="text" class="w-2/5 px-5 m-4"/>
+                                </div>
+                                <div>
+                                    <x-jet-label value="Precio"/>
+                                    <x-jet-input type="text" class="w-2/5"/>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap">
+                                <input type="file" class="appearance-none block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-6 px-6 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model="imagen" id="{{$identificador}}">
+                                <x-jet-input-error for="imagen"/>
+                            </div>
+                    </div>
+                    
+                    <div class="w-1/3">
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            @if ($imagen)
+                                <img class='mb-4' src="{{$imagen->temporaryUrl()}}">
+                            @else
+                                <img src="{{Storage::url($producto->imagen)}}" alt="producto"/>
+                            @endif
+                        </div>
+                    </div> 
                 </div>
-                <div>
-                    <x-jet-label value="Precio"/>
-                    <x-jet-input type="text" class="w-2/5"/>
-                </div>
-            </div>
-            <div class="flex flex-wrap">
-                <input type="file" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-6 px-6 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model="imagen" id="{{$identificador}}">
-                <x-jet-input-error for="imagen"/>
+                
               </div>
+
         </x-slot>
 
         <x-slot name="footer">

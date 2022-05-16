@@ -25,6 +25,13 @@ return new class extends Migration
             $table->foreignId('team_id')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->integer('cantidad_empaque');
+            $table->string('condicion');
+            $table->string('moneda');
+            $table->string('categoria');
+            $table->integer('cantidad');
+            $table->double('cbulto',8,2);
+            $table->double('cunidad',8,2);
+            $table->double('psugerido',8,2);
 
         });
     }

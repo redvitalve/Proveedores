@@ -22,7 +22,7 @@
                 @if ($imagen)
                   <img class='mb-4' src="{{$imagen->temporaryUrl()}}">
                 @endif
-                  <div class="w-1/2 md:w-1/2 px-3 mb-6 md:mb-0">
+                  <div class="w-1/2 md:w-1/full px-3 mb-6 md:mb-0">
                     <input type="text" value="{{ Auth::user()->id }}" class="hidden" wire:model="user_id">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                       SKU
@@ -33,7 +33,7 @@
                    
                   
                   </div>
-                  <div class="w-1/2 md:w-1/2 px-3">
+                  <div class="w-1/2 md:w-1/full px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                       Codigo de Barra
                     </label>
@@ -52,6 +52,35 @@
                     <x-jet-input-error for="nombre"/>
                   </div>
                 </div>
+                <div class="w-1/full md:w-1/full px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                    Categoria (*)
+                  </label>
+                  <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" wire:model="categoria">
+                    <option value="se">Seleccione</option>
+                    <option value="ALIMENTOS">ALIMENTOS</option>
+                    <option value="BIODYNAMICS">BIODYNAMICS</option>
+                    <option value="COSMETICOS Y BELLEZA">COSMETICOS Y BELLEZA</option>
+                    <option value="CUIDADO E HIGIENE PERSONAL">CUIDADO E HIGIENE PERSONAL</option>
+                    <option value="DERMATOLOGIA Y ESTETICA">DERMATOLOGIA Y ESTETICA</option>
+                    <option value="EQUIPOS MEDICOS">EQUIPOS MEDICOS</option>
+                    <option value="INSTRUMENTAL">INSTRUMENTAL</option>
+                    <option value="INSUMOS MEDICO">INSUMOS MEDICO</option>
+                    <option value="MEDICAMENTOS">MEDICAMENTOS</option>
+                    <option value="MATERNITY, BABY & CHILD">MATERNITY, BABY & CHILD</option>
+                    <option value="MISCELANEOS">MISCELANEOS</option>
+                    <option value="ODONTOLOGIA">ODONTOLOGIA</option>
+                    <option value="HOGAR">HOGAR</option>
+                    <option value="SPA">SPA</option>
+                    <option value="SPORT & FITNESS">SPORT & FITNESS</option>
+                    <option value="VESTIMENTA">VESTIMENTA</option>
+                    <option value="VETERINARIA">VETERINARIA</option>
+                    <option value="VITAMINAS, MINERALES Y SUPLEMENTOS">VITAMINAS, MINERALES Y SUPLEMENTOS</option>
+                  </select>
+                  {{-- {{$condicion}} --}}
+                  <x-jet-input-error for="categoria"/>
+                </div>
+              </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <div class="w-1/3 md:w-1/3 px-3 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
