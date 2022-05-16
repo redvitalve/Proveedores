@@ -77,7 +77,7 @@
                             {{$producto->id}}
                         </td>
                         <td class="px-6 py-4">
-                            @livewire('edit-product',['producto' => $producto], key($producto->id))
+                            @livewire('edit-product',['Producto' => $producto], key($producto->id))
                         </td>
                     </tr>
                     @endforeach
