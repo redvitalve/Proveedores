@@ -5,17 +5,18 @@ namespace App\Http\Livewire;
 use App\Models\producto;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class EditProduct extends Component
 {
-    
+
     use WithFileUploads;
     public $open = false;
     public $producto, $imagen, $identificador;
 
-    protected $rules =[
-        'producto.nombre'=>'required',
-        'producto.barras'=>'required',
+    protected $rules = [
+        'producto.nombre' => 'required',
+        'producto.barras' => 'required',
     ];
 
     public function mount(producto $producto)
@@ -23,7 +24,8 @@ class EditProduct extends Component
         $this->producto = $producto;
     }
 
-    public function save(){
+    public function save()
+    {
         $this->producto->save();
 
         $this->reset(['open', 'barras', 'nombre', 'imagen']);

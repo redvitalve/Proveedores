@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Producto;
 use App\Models\Movimiento;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class CreateProduct extends Component
 {

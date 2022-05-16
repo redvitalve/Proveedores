@@ -96,4 +96,10 @@
             No se consiguio ningun resultado por la busqueda
         </div>
             @endif
+
+            @if ($productos->hasPages())
+                <div class="px-6 py-3">
+                    {{$productos->links()}}
+                </div>
+            @endif
 </div>
