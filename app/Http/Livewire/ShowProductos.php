@@ -13,7 +13,7 @@ class ShowProductos extends Component
 {
 
     use WithPagination;
-    protected $listener = ['render'];
+    protected $listener = ['render => render'];
 
     public $search;
     public $sort = 'id';

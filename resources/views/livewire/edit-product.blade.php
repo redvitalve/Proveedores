@@ -20,7 +20,7 @@
             </div>
 
               <div class="flex px-8 py-12">
-                <div class="relative overflow-x-auto shadow-md flex">
+                <div class="relative overflow-clip shadow-md flex">
                     <div class="w-2/3">
 
 
@@ -33,29 +33,107 @@
                         
                             <div class="mb-4">
                                 <x-jet-label value="Nombre del producto"/>
-                                    <x-jet-input wire:model="producto.nombre" type="text" class="w-full"/>
+                                    <x-jet-input wire:model="producto.nombre" type="text" class="w-full over;"/>
+                                    {{-- <x-jet-input value="{{ Auth::user()->id }}" type="text" class="w-full over;"/> --}}
+                                    <x-jet-input wire:model="producto.sku_provee" type="text" class="hidden"/>
                             </div>
                             <div class="mb-4">
                                 <x-jet-label value="Codigo de Barra"/>
                                     <x-jet-input wire:model="producto.barras" type="text" class="w-full"/>
                             </div>
-                            <div class="mb-4 flex px-5 m-4">
-                                <div>
+                            <div class="w-1/full md:w-1/full px-3 mb-6 md:mb-0">
+                                <x-jet-label value="Categoria (*)"/>
+                                
+                                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" wire:model="producto.categoria">
+                                  <option value="se">Seleccione</option>
+                                  <option value="ALIMENTOS">ALIMENTOS</option>
+                                  <option value="BIODYNAMICS">BIODYNAMICS</option>
+                                  <option value="COSMETICOS Y BELLEZA">COSMETICOS Y BELLEZA</option>
+                                  <option value="CUIDADO E HIGIENE PERSONAL">CUIDADO E HIGIENE PERSONAL</option>
+                                  <option value="DERMATOLOGIA Y ESTETICA">DERMATOLOGIA Y ESTETICA</option>
+                                  <option value="EQUIPOS MEDICOS">EQUIPOS MEDICOS</option>
+                                  <option value="INSTRUMENTAL">INSTRUMENTAL</option>
+                                  <option value="INSUMOS MEDICO">INSUMOS MEDICO</option>
+                                  <option value="MEDICAMENTOS">MEDICAMENTOS</option>
+                                  <option value="MATERNITY, BABY & CHILD">MATERNITY, BABY & CHILD</option>
+                                  <option value="MISCELANEOS">MISCELANEOS</option>
+                                  <option value="ODONTOLOGIA">ODONTOLOGIA</option>
+                                  <option value="HOGAR">HOGAR</option>
+                                  <option value="SPA">SPA</option>
+                                  <option value="SPORT & FITNESS">SPORT & FITNESS</option>
+                                  <option value="VESTIMENTA">VESTIMENTA</option>
+                                  <option value="VETERINARIA">VETERINARIA</option>
+                                  <option value="VITAMINAS, MINERALES Y SUPLEMENTOS">VITAMINAS, MINERALES Y SUPLEMENTOS</option>
+                                </select>
+                                {{-- {{$condicion}} --}}
+                                <x-jet-input-error for="categoria"/>
+                              </div>
+                            
+                              <div class="px-3 mt-8 mb-6 md:mb-0 w-full flex">
+                                <div class="w-1/5 px-3 mb-6 md:mb-0">
+                                    <x-jet-label value="Cantidad del Empaque"/>
+                                    <x-jet-input wire:model="producto.cantidad_empaque" type="text" class="w-full"/>
+                                  
+                                  <x-jet-input-error for="cantidad_empaque"/>
+                                </div>
+
+                                <div class="w-1/5 px-3 mb-6 md:mb-0">
+                                  
+                                  <x-jet-label value="Cantidades disponibles"/>
+                                    <x-jet-input wire:model="producto.cantidad" type="text" class="w-full"/>
+                                  <x-jet-input-error for="cantidad"/>
+                                </div>
+                                <div class="w-1/7 px-3 mb-6 md:mb-0">
+                                    <x-jet-label value="Condición"/>
+                                  <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" wire:model="producto.condicion">
+                                    <option value="se">Seleccione</option>
+                                    <option value="Excento">Excento</option>
+                                    <option value="Gravable">Gravable</option>
+                                  </select>
+                                  {{-- {{$condicion}} --}}
+                                  <x-jet-input-error for="condicion"/>
+                                </div>
+                                <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
                                     <x-jet-label value="Moneda"/>
-                                    <x-jet-input type="text" class="w-2/5 px-5 m-4"/>
+                                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" wire:model="producto.moneda">
+                                      <option value="se">Seleccione</option>
+                                      <option value="USD">USD</option>
+                                      <option value="VES">VES</option>
+                                    </select>
+                                    {{-- {{$moneda}} --}}
+                                    <x-jet-input-error for="moneda"/>
+                                  </div>
+                              </div>
+                              
+                              <div class="px-3 mt-8 mb-6 md:mb-0 w-full flex"> 
+                                <div class="w-1/5 md:w-1/4 px-3 mb-6 md:mb-0">
+                                    <x-jet-label value="Costo x Bulto"/>
+                                    <x-jet-input wire:model="producto.cbulto" type="text" class="w-full"/>
+
+                                    <x-jet-input-error for="cbulto"/>
                                 </div>
-                                <div>
-                                    <x-jet-label value="Precio"/>
-                                    <x-jet-input type="text" class="w-2/5"/>
+                                <div class="w-1/7 md:w-1/4 px-3 mb-6 md:mb-0">
+                                    <x-jet-label value="Costo x Unidad"/>
+                                    <x-jet-input wire:model="producto.cunidad" type="text" class="w-full"/>
+
+                                  <x-jet-input-error for="cunidad"/>
+                                  
+                                </div>
+                              
+                             
+                                <div class="w-full  px-3 mb-6">
+                                  
+                                    <x-jet-label value="Precio Sugerido"/>
+                                    <x-jet-input wire:model="producto.psugerido" type="text" class="w-full"/>
+
+                                   
+                                  <x-jet-input-error for="psugerido"/>
                                 </div>
                             </div>
-                            <div class="flex flex-wrap">
-                                <input type="file" class="appearance-none block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-6 px-6 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model="imagen" id="{{$identificador}}">
-                                <x-jet-input-error for="imagen"/>
-                            </div>
+                              <div>
                     </div>
                     
-                    <div class="w-1/3">
+                    <div class="w-1/7">
                         <div class="flex flex-wrap -mx-3 mb-6">
                             @if ($imagen)
                                 <img class='mb-4' src="{{$imagen->temporaryUrl()}}">
@@ -63,8 +141,12 @@
                                 <img src="{{Storage::url($producto->imagen)}}" alt="producto"/>
                             @endif
                         </div>
+                        <div class="flex flex-wrap">
+                            <input type="file" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-6 px-6 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model="imagen" id="{{$identificador}}">
+                            <x-jet-input-error for="imagen"/>
+                          </div>
                     </div> 
-                </div>
+                
                 
               </div>
 

@@ -23,7 +23,7 @@
                   <img class='mb-4' src="{{$imagen->temporaryUrl()}}">
                 @endif
                   <div class="w-1/2 md:w-1/full px-3 mb-6 md:mb-0">
-                    <input type="text" value="{{ Auth::user()->id }}" class="hidden" wire:model="user_id">
+
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                       SKU
                     </label>
@@ -104,8 +104,8 @@
                     </label>
                     <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" wire:model="condicion">
                       <option value="se">Seleccione</option>
-                      <option value="E">Excento</option>
-                      <option value="G">Gravable</option>
+                      <option value="Excento">Excento</option>
+                      <option value="Gravable">Gravable</option>
                     </select>
                     {{-- {{$condicion}} --}}
                     <x-jet-input-error for="condicion"/>

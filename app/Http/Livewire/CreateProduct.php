@@ -6,22 +6,25 @@ use Livewire\Component;
 use App\Models\Producto;
 use App\Models\Movimiento;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 
 
 class CreateProduct extends Component
 {
+    
     public $open = false;
 
     use WithFileUploads;
 
 
-    public $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id, $imagen, $identificador,$categoria;
+    public $id1, $sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id, $imagen, $identificador,$categoria;
     // protected $listener = ['render'=>'render'];
 
     public function mount()
     {
         $this->identificador = rand();
     }
+  
 
     protected $messages = [
         'required' => 'Error :Valor requerido.',
@@ -60,7 +63,7 @@ class CreateProduct extends Component
             'nombre' => $this->nombre,
             'cantidad_empaque' => $this->cantidad_empaque,
             'status' => "N",
-            'user_id' => $this->user_id,
+            'user_id' => $id = Auth::id(),
             'imagen' => $imagen,
             'condicion' => $this->condicion,
             'moneda' => $this->moneda,
