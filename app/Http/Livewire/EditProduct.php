@@ -42,15 +42,22 @@ class EditProduct extends Component
         $this->producto->save();
 
         $Msku_provee = 'producto.sku_provee';
+        $Mcondicion = 'producto.condicion';
+        $Mcbulto = 'producto.cbulto';    
+        $Mcunidad = 'producto.cunidad';
+        $Mpsugerido ='producto.psugerido';
+        $Mmoneda = 'producto.moneda';
+        $Mcantidad = 'producto.cantidad';
 
-        Movimiento::create([
+
+         Movimiento::create([
             'sku_provee' => $this->$Msku_provee,
-            'condicion' => $this->condicion,
-            'moneda' => $this->moneda,
-            'cantidad' => $this->cantidad,
-            'cbulto' => $this->cbulto,
-            'cunidad' => $this->cunidad,
-            'psugerido' => $this->psugerido
+            'condicion' => $this->$Mcondicion,
+            'cbulto' => $this->$Mcbulto, 
+            'moneda' => $this->$Mmoneda,
+            'cantidad' => $this->$Mcantidad,
+            'cunidad' => $this->$Mcunidad,
+            'psugerido' => $this->$Mpsugerido
         ]);
 
         $this->reset(['open', 'barras', 'nombre', 'imagen', 'cantidad', 'categoria', 'cantidad_empaque', 'condicion', 

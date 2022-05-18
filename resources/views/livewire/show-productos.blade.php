@@ -17,7 +17,8 @@
                     
                 </div>
                 
-                
+              {{-- @php $productos= Producto::where('team_id',1)->get();
+              @endphp   --}}
             @if($productos->count())
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -60,6 +61,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     @foreach($productos as $producto)
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -93,7 +95,7 @@
         {{-- <h1>Hola Mundo</h1> --}}
     </div>
     @else
-        <div class="px-6 py4">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
             No se consiguio ningun resultado por la busqueda
         </div>
             @endif

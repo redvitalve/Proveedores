@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowProductos;
+use App\Controllers\ProductoController;
+use App\Models\Producto;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +29,14 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-Route::get('/productos',ShowProductos::class)->name ('productos');
+// Route::get('/productos',ShowProductos::class)->
+// $productos= Producto::where('team_id',1)->get();
 
 Route::get('/productos/crear', function () {
     return view('crearproducto');
 })->name('crear');
+
+// Route::get('/productos',[App\Http\Controllers\ProductoController::class, 'index'])->name ('productos');
+
+Route::get('/productos',ShowProductos::class)->name ('productos');
+
