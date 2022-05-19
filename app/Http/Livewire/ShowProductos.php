@@ -35,12 +35,29 @@ class ShowProductos extends Component
 
         $empresa=Auth::user()->currentTeam->id;
 
+        // $productos = Producto::where('team_id','=',$empresa)
+        //     ->Where('nombre', 'like', '%' . $this->search . '%')
+        //     ->orWhere('sku_provee', 'like', '%' . $this->search . '%')         
+        //     ->orderBy($this->sort, $this->direction)
+        //     ->paginate(20);
+        // return view('livewire.show-productos', compact('productos'));
+
         $productos = Producto::where('team_id','=',$empresa)
-            ->Where('nombre', 'like', '%' . $this->search . '%')
-            ->orWhere('sku_provee', 'like', '%' . $this->search . '%')         
-            ->orderBy($this->sort, $this->direction)
-            ->paginate(20);
-        return view('livewire.show-productos', compact('productos'));
+        ->when($this->search, function($query){
+            return $query->where(function ($query){
+                $query->where('nombre', 'like', '%' . $this->search . '%')
+                    ->orWhere('sku_provee', 'like', '%' . $this->search . '%')         
+                    ->orderBy($this->sort, $this->direction)
+                    ->paginate(20);
+            });
+        });
+        $query=$productos->toSql();
+        $productos=$productos->paginate(10);
+        
+    return view('livewire.show-productos', [
+        'productos'=>$productos,
+        'query'=>$query
+    ]);
     }
 
     public function order($sort)
