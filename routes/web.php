@@ -16,19 +16,34 @@ use App\Models\Producto;
 |
 */
 
-Route::get('/', function () {
+
+
+Route::group (['middleware' =>[
+    'auth:sanctum',
+    'verified',
+    'accessrole',
+]],function () {
+
+    Route::get('/dashboard', function () {
     return view('auth.login');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-});
+
+   
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+//     'accessrole',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
 // Route::get('/productos',ShowProductos::class)->
 // $productos= Producto::where('team_id',1)->get();
 
@@ -40,3 +55,14 @@ Route::get('/productos/crear', function () {
 
 Route::get('/productos',ShowProductos::class)->name ('productos');
 
+
+Route::get('/admin',function(){
+    return view('admin.index');
+})->name('admin');
+
+// Route::get('/{urlslug}', Frontpage::class);
+// Route::get('/', Frontpage::class);
+});
+Route::get('/', function () {
+    return view('auth.login');
+});
