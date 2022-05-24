@@ -13,7 +13,7 @@ class ShowProductos extends Component
 {
 
     use WithPagination;
-    protected $listener = ['render => render'];
+    
 
     public $search;
     public $sort = 'id';
@@ -27,7 +27,7 @@ class ShowProductos extends Component
         $this->resetPage();
     }
 
-   
+    protected $listeners = ['render => render'];
     public function render()
     {
         // $productos= Producto::where('team_id','1')->get();
@@ -35,12 +35,29 @@ class ShowProductos extends Component
 
         $empresa=Auth::user()->currentTeam->id;
 
-        // $productos = Producto::where('team_id','=',$empresa)
+        // if ($search->isEmpty()){
+
+        // $productos = Producto::where('team_id','=',$empresa)     
+        //     ->orderBy($this->sort, $this->direction)
+        //     ->get();
+        // return view('livewire.show-productos', ['productos' => $productos]);
+        // }
+        // else{
+        //     $productos = Producto::where('team_id','=',$empresa)
         //     ->Where('nombre', 'like', '%' . $this->search . '%')
         //     ->orWhere('sku_provee', 'like', '%' . $this->search . '%')         
         //     ->orderBy($this->sort, $this->direction)
         //     ->paginate(20);
-        // return view('livewire.show-productos', compact('productos'));
+        // return view('livewire.show-productos', ['productos' => $productos]);
+
+        // }
+
+    //     $productos = Producto::where('team_id','=',$empresa)
+    //     ->Where('nombre', 'like', '%' . $this->search . '%')
+    //     ->orWhere('sku_provee', 'like', '%' . $this->search . '%')         
+    //     ->orderBy($this->sort, $this->direction)
+    //     ->paginate(20);
+    // return view('livewire.show-productos', ['productos' => $productos]);
 
         $productos = Producto::where('team_id','=',$empresa)
         ->when($this->search, function($query){
@@ -48,17 +65,19 @@ class ShowProductos extends Component
                 $query->where('nombre', 'like', '%' . $this->search . '%')
                     ->orWhere('sku_provee', 'like', '%' . $this->search . '%')         
                     ->orderBy($this->sort, $this->direction)
-                    ->paginate(20);
+                    ->get();
             });
         });
         $query=$productos->toSql();
-        $productos=$productos->paginate(10);
+        $productos=$productos->paginate(100);
         
     return view('livewire.show-productos', [
         'productos'=>$productos,
         'query'=>$query
     ]);
+
     }
+   
 
     public function order($sort)
     {

@@ -13,7 +13,7 @@ class EditProduct extends Component
 
     use WithFileUploads;
     public $open = false;
-    public $imagentt,$producto,$sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id, $imagen, $identificador,$categoria;
+    public $imagentt,$movimientos, $producto,$sku_provee, $barras, $nombre, $cantidad_empaque, $cantidad, $condicion, $moneda, $cbulto, $cunidad, $psugerido, $user_id, $imagen, $identificador,$categoria,$Msku_provee;
     
 
    
@@ -35,30 +35,32 @@ class EditProduct extends Component
     public function mount(producto $producto)
     {
         $this->producto = $producto;
+        
     }
 
     public function save()
     {
         $this->producto->save();
+       
 
-        $Msku_provee = 'producto.sku_provee';
-        $Mcondicion = 'producto.condicion';
-        $Mcbulto = 'producto.cbulto';    
-        $Mcunidad = 'producto.cunidad';
-        $Mpsugerido ='producto.psugerido';
-        $Mmoneda = 'producto.moneda';
-        $Mcantidad = 'producto.cantidad';
+        // $Msku_provee -> $producto.sku_provee;
+        // // $Mcondicion = 'producto.condicion';
+        // // $Mcbulto = 'producto.cbulto';    
+        // // $Mcunidad = 'producto.cunidad';
+        // // $Mpsugerido ='producto.psugerido';
+        // // $Mmoneda = 'producto.moneda';
+        // // $Mcantidad = 'producto.cantidad';
 
 
-         Movimiento::create([
-            'sku_provee' => $this->$Msku_provee,
-            'condicion' => $this->$Mcondicion,
-            'cbulto' => $this->$Mcbulto, 
-            'moneda' => $this->$Mmoneda,
-            'cantidad' => $this->$Mcantidad,
-            'cunidad' => $this->$Mcunidad,
-            'psugerido' => $this->$Mpsugerido
-        ]);
+        //  Movimiento::create([
+        //     'sku_provee' => $this->sku_provee='producto.sku_provee',
+        //     'condicion' => $this->condicion,
+        //     'cbulto' => $this->cbulto, 
+        //     'moneda' => $this->moneda,
+        //     'cantidad' => $this->cantidad,
+        //     'cunidad' => $this->cunidad,
+        //     'psugerido' => $this->psugerido
+        // ]);
 
         $this->reset(['open', 'barras', 'nombre', 'imagen', 'cantidad', 'categoria', 'cantidad_empaque', 'condicion', 
         'cbulto', 'cunidad', 'psugerido', 'moneda', 'sku_provee']);

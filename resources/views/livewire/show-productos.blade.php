@@ -1,16 +1,16 @@
 <div>
     <x-slot name="header">
-        <h2 class='font-semibold text-xl text-gray-800 leading-tight'>
+        <h2 class='text-xl font-semibold leading-tight text-gray-800'>
             {{ __('Productos') }}
         </h2>
     </x-slot>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+    <div class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
            
                 
-                <div class="p-6 py4 items-center flex ">
+                <div class="flex items-center p-6 py4 ">
                 
-<input type="text" id="table-search" class= "w-1/3 mr-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500   dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" wire:model="search" placeholder="Buscar..." >
+<input type="text" id="table-search" class= "w-1/3 mr-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" wire:model="search" placeholder="Buscar..." >
                     @livewire('create-product')</div>
         </div>
                     
@@ -20,7 +20,7 @@
               {{-- @php $productos= Producto::where('team_id',1)->get();
               @endphp   --}}
             @if($productos->count())
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+            <div class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -29,24 +29,24 @@
                             
                             @if ($sort == 'nombre')
                                 @if ($direction == 'asc')
-                                    <i class="fa fa-sort-alpha-up-alt float-right mt-1"></i>
+                                    <i class="float-right mt-1 fa fa-sort-alpha-up-alt"></i>
                                 @else
-                                    <i class="fa fa-sort-alpha-down-alt float-right mt-1"></i>
+                                    <i class="float-right mt-1 fa fa-sort-alpha-down-alt"></i>
                                 @endif
                             @else
-                                <i class="fa fa-sort float-right mt-1"></i>
+                                <i class="float-right mt-1 fa fa-sort"></i>
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3 cursor-pointer" wire:click="order('sku_provee')">
                             SKU Proveedor
                             @if ($sort == 'sku_provee')
                                 @if ($direction == 'asc')
-                                    <i class="fa fa-sort-alpha-up-alt float-right mt-1"></i>
+                                    <i class="float-right mt-1 fa fa-sort-alpha-up-alt"></i>
                                 @else
-                                    <i class="fa fa-sort-alpha-down-alt float-right mt-1"></i>
+                                    <i class="float-right mt-1 fa fa-sort-alpha-down-alt"></i>
                                 @endif
                             @else
-                                <i class="fa fa-sort float-right mt-1"></i>
+                                <i class="float-right mt-1 fa fa-sort"></i>
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3 cursor-pointer">
@@ -76,7 +76,7 @@
                             {{$producto->categoria}}
                         </td>
                         <td class="px-6 py-4">
-                            {{$producto->moneda}}{{$producto->cunidad}}
+                            <span class="text-xs font-bold">{{$producto->moneda}}</span> {{$producto->cunidad}}
                         </td>
                         <td class="px-6 py-4" btn-green btn-green>
                             @livewire('edit-product',['producto' => $producto], key($producto->id))
@@ -95,7 +95,7 @@
         {{-- <h1>Hola Mundo</h1> --}}
     </div>
     @else
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+    <div class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
             No se consiguio ningun resultado por la busqueda
         </div>
             @endif

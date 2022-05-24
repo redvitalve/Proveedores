@@ -57,7 +57,7 @@ Route::get('/productos',ShowProductos::class)->name ('productos');
 
 
 Route::get('/admin',function(){
-    return view('admin.index');
+    return view('admin');
 })->name('admin');
 
 // Route::get('/{urlslug}', Frontpage::class);
