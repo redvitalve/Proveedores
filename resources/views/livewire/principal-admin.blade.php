@@ -1,3 +1,9 @@
 <div>
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+    <x-slot name="header">
+        <h2 class='text-xl font-semibold leading-tight text-gray-800'>
+            {{ __('Administrador') }}
+        </h2>
+    </x-slot>
+    
+    
 </div>
