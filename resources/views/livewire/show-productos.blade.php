@@ -56,6 +56,9 @@
                             Costo unitario
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Fecha Modificación
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             <span class="sr-only">Editar</span>
                         </th>
                     </tr>
@@ -77,6 +80,9 @@
                         </td>
                         <td class="px-6 py-4">
                             <span class="text-xs font-bold">{{$producto->moneda}}</span> {{$producto->cunidad}}
+                        </td>
+                        <td class="px-6 py-4">
+                             {{$producto->updated_at}}
                         </td>
                         <td class="px-6 py-4" btn-green btn-green>
                             @livewire('edit-product',['producto' => $producto], key($producto->id))

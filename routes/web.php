@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowProductos;
-use App\Controllers\ProductoController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Models\Producto;
 
 /*
@@ -24,13 +24,17 @@ Route::group (['middleware' =>[
     'accessrole',
 ]],function () {
 
-    Route::get('/dashboard', function () {
-    return view('auth.login');
-});
+    Route::get('/dashboard', [HomeController::class, 'userpro'])->name('dashboard');
+    Route::get('/admin', [HomeController::class, 'admin.index']);
+    Route::get('/admin/proveedores', [ProveedorController::class, 'show']);
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+//     Route::get('/dashboard', function () {
+//     return view('auth.login');
+// });
+
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
 
    
 

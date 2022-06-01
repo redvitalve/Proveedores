@@ -44,11 +44,13 @@ private function userAccesRole()
             'dashboard',
             '/',
             'logout',
-        ], 
-        'admin' =>[
-            'dashboard',
             'crear',
             'productos',
+        ], 
+        'admin' =>[
+            // 'dashboard',
+            // 'crear',
+            // 'productos',
             '/',
             'admin',
         ]

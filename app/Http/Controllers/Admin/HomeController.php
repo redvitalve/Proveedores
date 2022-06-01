@@ -7,10 +7,18 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin',['only'=>'admin']);
+    }
+
     public function index(){
         return view('admin.index');
     }
-    public function proveedores(){
-        return view('admin.lista-proveedores');
+
+    public function userpro(){
+        return view('dashboard');
     }
 }

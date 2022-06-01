@@ -31,9 +31,10 @@ $btnDetails = '<button class="mx-1 shadow btn btn-xs btn-default text-teal" titl
 
 $config = [
     'data' => [
-        [22, 'Dynalab', '+58 412.842.96.45', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-        [19, 'DrovenPlus', '+58 424.433.95.78', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-        [3, 'Suramericana de Aerosoles', '+58 412.845.23.23', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
+        @foreach($teams as $team)
+        @csrf
+        [{{ $team->id }}, 'Dynalab', '+58 412.842.96.45', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
+        @endforeach
     ],
     'order' => [[1, 'asc']],
     'columns' => [null, null, null, ['orderable' => false]],
