@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowProductos;
 use App\Http\Controllers\Admin\HomeController;
+Use App\Http\Controllers\ProductoController;
 use App\Models\Producto;
 
 /*
@@ -27,6 +28,7 @@ Route::group (['middleware' =>[
     Route::get('/dashboard', [HomeController::class, 'userpro'])->name('dashboard');
     Route::get('/admin', [HomeController::class, 'admin.index']);
     Route::get('/admin/proveedores', [ProveedorController::class, 'show']);
+    Route::get('/admin/productos', [ProductoController::class, 'AdminListProduct'])->name('AdminListProduct');
 
 //     Route::get('/dashboard', function () {
 //     return view('auth.login');

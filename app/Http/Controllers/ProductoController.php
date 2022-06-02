@@ -13,4 +13,10 @@ class ProductoController extends Controller
 
         return view('livewire.show-productos', compact('productos'));
     }
+    
+    public function AdminListProduct(){
+        $productos= Producto::where('team_id',1)->get();
+
+        return view('admin.lista-productos', compact('productos'));
+    }
 }

@@ -2,7 +2,7 @@
 @section('title', 'Lista Proveedores')
 
 @section('content_header')
-    <h1>Listado de Proveedores</h1>
+    <h1>Listado de Productos</h1>
 @stop
 
 @section('content')
@@ -14,8 +14,8 @@
 @php
 $heads = [
     'ID',
-    'Empresas',
-    ['label' => 'Telefonos', 'width' => 40],
+    'Nombre',
+    ['label' => 'Categoria', 'width' => 40],
     ['label' => 'Acciones', 'no-export' => true, 'width' => 5],
 ];
 
@@ -34,7 +34,7 @@ $btnDetails = '<button class="mx-1 shadow btn btn-xs btn-default text-teal" titl
 
 {{-- Minimal example / fill data using the component slot --}}
 <x-adminlte-datatable id="table1" :heads="$heads">
-    @foreach($teams as $team)
+    @foreach($productos as $producto)
  
        
        
@@ -47,11 +47,13 @@ $btnDetails = '<button class="mx-1 shadow btn btn-xs btn-default text-teal" titl
 
           <table style="width:100%">
             
-            @foreach($teams as $team)
+            @foreach($productos as $producto)
             <tr>
-                <th style="width:150px">{{ $team->id }}</th>
-                <th>{{ $team->name }}</th>
-                <th>+58 412.842.96.45</th> 
+                <th style="width:50px">{{ $producto->id }}</th>
+                <th><img src="{{Storage::url($producto->imagen)}}" alt="Productos" width="100px" border-radius="50%"/>
+                    <p class="mx-2 text-sm text-gray-600 dark:text-white"><span class="font-bold" href="#"></th>
+                <th> {{ $producto->nombre }}</th>
+                <th>{{ $producto->categoria }}</th> 
                 <th style="width:150px"><button class="mx-1 shadow btn btn-xs btn-default text-primary" title="Editar">
                     <i class="fa fa-lg fa-fw fa-pen"></i>
                 </button><button class="mx-1 shadow btn btn-xs btn-default text-danger" title="Eliminar">

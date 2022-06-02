@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ProveedorController extends Controller
 {
+    public $teams;
     /**
      * Display a listing of the resource.
      *

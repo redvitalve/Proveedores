@@ -13,7 +13,7 @@
             <div class="col">
                 <div class="small-box bg-gradient-success">
                     <div class="inner">
-                      <h3>44</h3>
+                      <h3>{{$teams->count()}}</h3>
                       <p>Proveedores Registrados</p>
                     </div>
                     <div class="icon">
@@ -27,13 +27,13 @@
             <div class="col">
                 <div class="small-box bg-info">
                     <div class="inner">
-                      <h3>150</h3>
+                      <h3>{{$productos->count()}}</h3>
                       <p>Productos Registrados</p>
                     </div>
                     <div class="icon">
                       <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <a href="#" class="small-box-footer">
+                    <a href="admin/productos" class="small-box-footer">
                       Más información <i class="fas fa-arrow-circle-right"></i>
                     </a>
                   </div>
