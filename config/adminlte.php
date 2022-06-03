@@ -241,41 +241,41 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'Buscar',
         ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // [
+        //     'text' => 'blog',
+        //     'url'  => 'admin/blog',
+        //     'can'  => 'manage-blog',
+        // ],
+        // [
+        //     'text'        => 'pages',
+        //     'url'         => 'admin/pages',
+        //     'icon'        => 'far fa-fw fa-file',
+        //     'label'       => 4,
+        //     'label_color' => 'success',
+        // ],
+        ['header' => 'MODULOS'],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
         [
             'text'    => 'Proveedores',
             'icon'    => 'fas fa-fw fa-share',
-            'label' => 'Nuevo',
-                    'label_color' => 'danger',
+            // 'label' => 'Nuevo',
+                    // 'label_color' => 'danger',
             'submenu' => [
                
                 [
                     'text'    => 'Proveedores',
                     'url'     => '#',
-                    'label' => 'Nuevo',
-                    'label_color' => 'danger',
+                    // 'label' => 'Nuevo',
+                    // 'label_color' => 'danger',
                     'submenu' => [
                         [
                             'text' => 'Lista de Proveedores',
@@ -284,12 +284,12 @@ return [
                         [
                             'text'    => 'Creación',
                             'url'     => '#',
-                            'label' => 'Nuevo',
-                    'label_color' => 'danger',
+                            // 'label' => 'Nuevo',
+                    // 'label_color' => 'danger',
                             'submenu' => [
                                 [
                                     'text' => 'Nuevo',
-                                    'url'  => '#',
+                                    'url'  => '/admin/registro',
                                 ],
                                 [
                                     'text' => 'En Espera',
@@ -303,7 +303,7 @@ return [
                 ],
                 [
                     'text' => 'Listado de Productos',
-                    'url'  => '#',
+                    'url'  => '/admin/productos',
                 ],
                 [
                     'text' => 'Generar TXT',

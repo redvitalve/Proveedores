@@ -6,71 +6,87 @@
 @stop
 
 @section('content')
-   
-    <div class="container">
-
-        <div class="row">
-            {{-- Setup data for datatables --}}
-@php
-$heads = [
-    'ID',
-    'Empresas',
-    ['label' => 'Telefonos', 'width' => 40],
-    ['label' => 'Acciones', 'no-export' => true, 'width' => 5],
-];
-
-$btnEdit = '<button class="mx-1 shadow btn btn-xs btn-default text-primary" title="Editar">
-                <i class="fa fa-lg fa-fw fa-pen"></i>
-            </button>';
-$btnDelete = '<button class="mx-1 shadow btn btn-xs btn-default text-danger" title="Eliminar">
-                  <i class="fa fa-lg fa-fw fa-trash"></i>
-              </button>';
-$btnDetails = '<button class="mx-1 shadow btn btn-xs btn-default text-teal" title="Detalles">
-                   <i class="fa fa-lg fa-fw fa-eye"></i>
-               </button>';
-               
-
-@endphp
-
-{{-- Minimal example / fill data using the component slot --}}
-<x-adminlte-datatable id="table1" :heads="$heads">
-    @foreach($teams as $team)
- 
-       
-       
-        </tr>
-    @endforeach
-</x-adminlte-datatable>
-
-{{-- Compressed with style options / fill data using the plugin config --}}
-
-
-          <table style="width:100%">
-            
-            @foreach($teams as $team)
-            <tr>
-                <th style="width:150px">{{ $team->id }}</th>
-                <th>{{ $team->name }}</th>
-                <th>+58 412.842.96.45</th> 
-                <th style="width:150px"><button class="mx-1 shadow btn btn-xs btn-default text-primary" title="Editar">
-                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                </button><button class="mx-1 shadow btn btn-xs btn-default text-danger" title="Eliminar">
-                    <i class="fa fa-lg fa-fw fa-trash"></i>
-                </button><button class="mx-1 shadow btn btn-xs btn-default text-teal" title="Detalles">
-                    <i class="fa fa-lg fa-fw fa-eye"></i>
-                </button></th> 
-            </tr>
-            @endforeach
-          </table>       
+  
           
     
       
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop
+          <div class="container-flex">
+              
+          
+            <table id="productos" class="table mt-4 shadow-lg table-striped" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>id</th>
+                      <th>Empresa</th>
+                      <th>Productos</th>
+                      <th>Telefonos</th>
+                      <th>Correo</th>
+                      <th>Ciudad</th>
+                      <th>Fecha Actualizacion</th>
+                      <th>Acciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+                @foreach($teams as $team)
+                  <tr>
+                      <td>{{ $team->id }}</td>
+                      
+                      <td>{{ $team->name }}</td>
+                      <td>5</td>
+                      <td></td>
+                      <td></td>
+                      <td>Valencia</td>
+                      <td>{{ $team->updated_at }}</td>
+                      <th><button class="mx-1 shadow btn btn-xs btn-default text-primary" title="Editar">
+                          <i class="fa fa-lg fa-fw fa-pen"></i>
+                      </button><button class="mx-1 shadow btn btn-xs btn-default text-danger" title="Eliminar">
+                          <i class="fa fa-lg fa-fw fa-trash"></i>
+                      </button><button class="mx-1 shadow btn btn-xs btn-default text-teal" title="Detalles">
+                          <i class="fa fa-lg fa-fw fa-eye"></i>
+                      </button></th> 
+                  </tr>
+                  @endforeach
+              </tbody>
+              <tfoot>
+                  <tr>
+                    <th>id</th>
+                    <th>Empresa</th>
+                    <th>Productos</th>
+                    <th>Telefonos</th>
+                    <th>Correo</th>
+                    <th>Ciudad</th>
+                    <th>Fecha Actualizacion</th>
+                    <th>Acciones</th>
+                  </tr>
+              </tfoot>
+          </table>
+      </div>
+  @stop
+  
+  @section('css')
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+  @stop
+  
+  @section('js')
+  
+      <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+      <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" ></script>
+      <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js" ></script>
+      <script> console.log('Hi!');
+      $(document).ready(function () {
+          $('#productos').DataTable({
+              "language" : {
+                  "search": "Buscar",
+                  "lengthMenu": "Mostrar _MENU_ registros por página",
+                  "info": "Mostrando página _PAGE_ de _PAGES_",
+                  "paginate": {
+                      "previus":"Anterior",
+                      "next": "Siguiente",
+                      "first": "Primero",
+                        "last": "Último"
+                  }
+              }
+          });
+      });
+  </script>
+  @stop

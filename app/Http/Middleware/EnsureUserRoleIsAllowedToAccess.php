@@ -53,7 +53,8 @@ private function userAccesRole()
             // 'productos',
             '/',
             'admin',
-            'AdminListProduct'
+            'AdminListProduct',
+            'registro'
         ]
         ];
 }

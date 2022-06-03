@@ -29,6 +29,8 @@ Route::group (['middleware' =>[
     Route::get('/admin', [HomeController::class, 'admin.index']);
     Route::get('/admin/proveedores', [ProveedorController::class, 'show']);
     Route::get('/admin/productos', [ProductoController::class, 'AdminListProduct'])->name('AdminListProduct');
+    Route::get('/admin/registro', function () {
+        return view('admin.auth.register');})->name('registro');
 
 //     Route::get('/dashboard', function () {
 //     return view('auth.login');
