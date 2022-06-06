@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Team;
+use App\Models\User;
 use App\Models\Data_proveedores;
 
 use Illuminate\Http\Request;
@@ -26,7 +27,9 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+       
+        
+
     }
 
     /**
@@ -37,7 +40,17 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' =>'required',
+            'email' =>'required|unique:user',
+            'empresa'=>'required|unique:user',
+        ]);
+        
+        User::create([
+            'name'=>$request->name, 
+            'email'=>$request->mail,
+            'role'=>'user',
+        ]);
     }
 
     /**
