@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowProductos;
 use App\Http\Controllers\Admin\HomeController;
 Use App\Http\Controllers\ProductoController;
+Use App\Http\Controllers\ProveedorController;
+Use App\Http\Controllers\TxtController;
 use App\Models\Producto;
 
 /*
@@ -31,6 +33,8 @@ Route::group (['middleware' =>[
     Route::get('/admin/productos', [ProductoController::class, 'AdminListProduct'])->name('AdminListProduct');
     Route::get('/admin/registro', function () {
         return view('admin.auth.register');})->name('registro');
+    Route::post('/admin/registro', [ProveedorController::class, 'store'])->name('registro');
+    Route::get('/admin/crea-txt', [TxtController::class, 'index'])->name('crea-txt');
 
 //     Route::get('/dashboard', function () {
 //     return view('auth.login');

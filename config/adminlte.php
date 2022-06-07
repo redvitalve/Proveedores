@@ -307,7 +307,7 @@ return [
                 ],
                 [
                     'text' => 'Generar TXT',
-                    'url'  => '#',
+                    'url'  => 'admin/crea-txt',
                 ],
                 [
                     'text' => 'Historial del Producto',

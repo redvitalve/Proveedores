@@ -44,6 +44,8 @@ class ProveedorController extends Controller
             'name' =>'required',
             'email' =>'required|unique:user',
             'empresa'=>'required|unique:user',
+            'rif' => 'required|unique:user',
+            'direccion' =>'required'
         ]);
         
         User::create([

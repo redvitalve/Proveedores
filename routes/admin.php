@@ -6,3 +6,4 @@ use App\Http\Controllers\ProveedorController;
 
 Route::get('', [HomeController::class, 'index']);
 Route::get('proveedores', [ProveedorController::class, 'show']);
+Route::post('admin/registro', [ProveedorController::class, 'store']);
