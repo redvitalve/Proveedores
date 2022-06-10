@@ -23,6 +23,7 @@ class producto extends Model
         'cbulto',
         'cunidad',
         'psugerido',
-        'categoria'
+        'categoria',
+        'id'
     ];
 }

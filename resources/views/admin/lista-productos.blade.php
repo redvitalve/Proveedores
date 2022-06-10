@@ -35,8 +35,9 @@
                     <td>{{ $producto->team_id }}</td>
                     <td>{{ $producto->categoria }}</td>
                     <td>{{ $producto->updated_at }}</td>
-                    <th><button class="mx-1 shadow btn btn-xs btn-default text-primary" title="Editar">
+                    <th><a href="{{ route('adminProductos.show', $producto) }}"><button class="mx-1 shadow btn btn-xs btn-default text-primary" title="Editar">
                         <i class="fa fa-lg fa-fw fa-pen"></i>
+                        </a>
                     </button><button class="mx-1 shadow btn btn-xs btn-default text-danger" title="Eliminar">
                         <i class="fa fa-lg fa-fw fa-trash"></i>
                     </button><button class="mx-1 shadow btn btn-xs btn-default text-teal" title="Detalles">

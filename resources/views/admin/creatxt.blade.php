@@ -24,26 +24,19 @@
               @enderror
           </div>
           <div class="mb-4 md:w-1/2">
-              <label for="fechaini" class="control-label">Fecha Desde...</label>
-              <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+              <label for="fechaini" class="control-label">Fecha de busqueda</label>
+              <input type="text" name="daterange" value="06/01/2022 - 06/15/2022" />
 
-<script>
-$(function() {
-  $('input[name="daterange"]').daterangepicker({
-    opens: 'left'
-  }, function(start, end, label) {
-    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-  });
-});
-</script>
+
         </div>
               @error('fechaini')
               <p class="p-2 my-2 text-sm text-center text-white rounded-lg bg-danger">Se requiere correo</p>
           @enderror
-          </div>
+          
          
           <input type="submit" class="btn btn-primary" value="Generar TXTS">
       </form>
+    </div>
   </div>
 </div>
           
@@ -53,11 +46,21 @@ $(function() {
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 @stop
 
 @section('js')
 <script>
- $('input[name="dates"]').daterangepicker();
-</script>
+  $(function() {
+    $('input[name="daterange"]').daterangepicker({
+      opens: 'left'
+    }, function(start, end, label) {
+      console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    });
+  });
+  </script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script> console.log('Hi!'); </script>
 @stop

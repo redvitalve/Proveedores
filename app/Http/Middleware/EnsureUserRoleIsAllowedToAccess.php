@@ -56,7 +56,9 @@ private function userAccesRole()
             'AdminListProduct',
             'registro',
             'admin/registro',
-            'crea-txt'
+            'crea-txt',
+            'adminProductos.show',
+            
         ]
         ];
 }

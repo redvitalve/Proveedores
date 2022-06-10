@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HomeController;
 Use App\Http\Controllers\ProductoController;
 Use App\Http\Controllers\ProveedorController;
 Use App\Http\Controllers\TxtController;
+Use App\Http\Controllers\admin\AdminProductosController;
 use App\Models\Producto;
 
 /*
@@ -35,6 +36,9 @@ Route::group (['middleware' =>[
         return view('admin.auth.register');})->name('registro');
     Route::post('/admin/registro', [ProveedorController::class, 'store'])->name('registro');
     Route::get('/admin/crea-txt', [TxtController::class, 'index'])->name('crea-txt');
+    Route::get('/admin/productos-ver/{producto}', [AdminProductosController::class, 'show'])->name('adminProductos.show');
+    // Route::post('/admin/productos-ver', [AdminProductosController::class, 'edit'])->name('ver');
+    
 
 //     Route::get('/dashboard', function () {
 //     return view('auth.login');
