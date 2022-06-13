@@ -39,6 +39,7 @@ Route::group (['middleware' =>[
     Route::get('/admin/productos-ver/{producto}', [AdminProductosController::class, 'show'])->name('adminProductos.show');
     // Route::post('/admin/productos-ver', [AdminProductosController::class, 'edit'])->name('ver');
     
+    Route::post('/admin/producto-actualizar',[AdminProductosController::class, 'update'])->name('adminproducto.update');
 
 //     Route::get('/dashboard', function () {
 //     return view('auth.login');
