@@ -265,7 +265,7 @@ return [
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
         [
-            'text'    => 'Proveedores',
+            'text'    => 'Gestion de Proveedores',
             'icon'    => 'fas fa-fw fa-share',
             // 'label' => 'Nuevo',
                     // 'label_color' => 'danger',
@@ -281,6 +281,7 @@ return [
                             'text' => 'Lista de Proveedores',
                             'url'  => '/admin/proveedores',
                         ],
+                        
                         [
                             'text'    => 'Creación',
                             'url'     => '#',
@@ -296,6 +297,10 @@ return [
                                     'label' => '2',
                     'label_color' => 'danger',
                                     'url'  => '#',
+                                ],
+                                [
+                                    'text' => 'Clasificacion de Proveedores',
+                                    'url'  => '/admin/proveedores',
                                 ],
                             ],
                         ],
@@ -316,7 +321,7 @@ return [
             ],
         ],
         [
-            'text'    => 'Compras',
+            'text'    => 'Gestion de Compras',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
@@ -382,7 +387,7 @@ return [
         ],
                     
         [
-            'text'    => 'Comparación',
+            'text'    => 'Inteligencia Comparativa',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
@@ -417,6 +422,66 @@ return [
                     'text' => 'Notificaciones de Precios',
                     'url'  => '#',
                 ],
+            ],
+        ],
+        [
+            'text'    => 'Gestion de Pagos',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Extracción de BaseGráfico',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Historico Movimientos del Producto',
+                    'url'     => '#',
+                ],
+                [
+                    'text' => 'Recomendación Orden de Compras',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Comparación de Precios',
+                    'url'     => '#',
+                    'submenu' => [
+                         [
+                            'text' => 'Comparación de Precios entre Proveedores',
+                            'url'  => '#',
+                        ],
+                        [
+                            'text' => 'Comparación de Precios VS Competencia',
+                            'url'  => '#',
+                        ],
+                            ],
+                ],
+            
+            
+                [
+                    'text' => 'Notificaciones de Precios',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Gestion de Usuarios',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Usuarios Internos',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Usuarios Externos',
+                    'url'     => '#',
+                ],
+                [
+                    'text' => 'Roles',
+                    'url'  => '#',
+                ],
+                
+            
+            
+                
             ],
         ],
         ['header' => 'Notificaciones'],

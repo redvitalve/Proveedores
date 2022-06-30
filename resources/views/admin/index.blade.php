@@ -2,7 +2,7 @@
 @section('title', 'Escritorio')
 
 @section('content_header')
-    <h1>Administrador</h1>
+    <h1>Inteligencia de Gestion Corporativa</h1>
 @stop
 
 @section('content')
